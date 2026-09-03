@@ -137,8 +137,23 @@ p {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   justify-self: start;
+}
+
+.brand-mark-img {
+  display: block;
+  width: 1.7rem;
+  height: 1.7rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  display: block;
+  height: 2.25rem;
+  width: auto;
+  object-fit: contain;
 }
 
 .brand-mark {
@@ -152,20 +167,21 @@ p {
 .brand-text {
   display: flex;
   align-items: baseline;
-  gap: 0.55rem;
+  gap: 0.5rem;
 }
 
 .brand-en {
   font-family: var(--serif-en);
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.04em;
+  line-height: 1;
 }
 
 .brand-zh {
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   color: var(--muted);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
 }
 
 .nav {
@@ -558,6 +574,12 @@ body[data-lang="zh"] .hero h1 {
 }
 
 /* Beliefs */
+.beliefs-body {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.25rem);
+  align-items: stretch;
+}
+
 .belief-list {
   list-style: none;
   margin: 0;
@@ -594,20 +616,25 @@ body[data-lang="zh"] .hero h1 {
 }
 
 .beliefs-visual {
-  margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .beliefs-visual img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
 .beliefs-visual figcaption {
   margin-top: 0.85rem;
+  flex-shrink: 0;
   font-size: 0.9rem;
   color: var(--muted);
   letter-spacing: 0.04em;
+  max-width: 18rem;
 }
 
 /* Presence */
@@ -626,12 +653,12 @@ body[data-lang="zh"] .hero h1 {
   margin: 0 auto;
   padding: 0 var(--space);
   display: grid;
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: clamp(2rem, 5vw, 3.5rem);
   align-items: center;
 }
 
 .presence-copy {
-  max-width: 34rem;
+  max-width: 32rem;
   display: grid;
   gap: 1.1rem;
 }
@@ -642,32 +669,27 @@ body[data-lang="zh"] .hero h1 {
 
 .presence-gallery {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 0.75rem;
+  align-items: stretch;
+  min-height: clamp(18rem, 48vw, 28rem);
 }
 
 .presence-gallery figure {
   margin: 0;
   overflow: hidden;
+  height: 100%;
 }
 
 .presence-gallery img {
   width: 100%;
-  aspect-ratio: 5 / 4;
+  height: 100%;
   object-fit: cover;
   transition: transform 1.1s var(--ease);
 }
 
 .presence-gallery figure:hover img {
-  transform: scale(1.04);
-}
-
-.presence-gallery figure:last-child {
-  width: 78%;
-  justify-self: end;
-}
-
-.presence-gallery figure:last-child img {
-  aspect-ratio: 4 / 5;
+  transform: scale(1.03);
 }
 
 /* Contact */
@@ -723,9 +745,34 @@ body[data-lang="zh"] .hero h1 {
 
 .footer-brand {
   display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.85rem;
+}
+
+.footer-mark {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+}
+
+.footer-brand-text {
+  display: flex;
   align-items: baseline;
-  gap: 0.55rem;
-  margin-bottom: 0.65rem;
+  gap: 0.5rem;
+}
+
+.footer-brand-text .brand-en {
+  font-size: 1.35rem;
+}
+
+.footer-logo {
+  display: block;
+  height: 3.5rem;
+  width: auto;
+  object-fit: contain;
 }
 
 .footer-tagline {
@@ -800,9 +847,31 @@ body[data-lang="en"] .footer-tagline {
     padding: 2rem 0;
   }
 
+  .beliefs-body {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(2.5rem, 4vw, 4rem);
+    align-items: stretch;
+  }
+
+  .beliefs-visual {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .beliefs-visual img {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
   .presence-layout {
-    grid-template-columns: 1fr 1.05fr;
-    gap: 4.5rem;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(3rem, 5vw, 5rem);
+  }
+
+  .presence-gallery {
+    min-height: clamp(26rem, 42vw, 34rem);
   }
 
   .contact-panel {

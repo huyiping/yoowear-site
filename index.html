@@ -15,7 +15,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/images/hero.jpg" />
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,7 +30,7 @@
 
     <header class="site-header" id="top">
       <a class="brand" href="#top" aria-label="YooWear">
-        <span class="brand-mark" aria-hidden="true"></span>
+        <img class="brand-mark-img" src="assets/mark.png" alt="" width="64" height="64" />
         <span class="brand-text">
           <span class="brand-en">YooWear</span>
           <span class="brand-zh" data-i18n="brand.zh">悦己</span>
@@ -95,12 +95,8 @@
             广州悦己服装有限公司，以衣为媒，让穿着回归悦己本心。
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#philosophy" data-i18n="hero.cta"
-              >走进悦己</a
-            >
-            <a class="btn btn-ghost" href="#contact" data-i18n="hero.secondary"
-              >与我们联络</a
-            >
+            <a class="btn btn-primary" href="#philosophy" data-i18n="hero.cta">走进悦己</a>
+            <a class="btn btn-ghost" href="#contact" data-i18n="hero.secondary">与我们联络</a>
           </div>
         </div>
         <a class="scroll-hint" href="#philosophy" aria-hidden="true">
@@ -148,6 +144,7 @@
             它们不响亮，却决定一件衣服能否真正属于你。
           </p>
         </div>
+        <div class="beliefs-body">
         <ol class="belief-list">
           <li class="belief reveal">
             <span class="belief-index">01</span>
@@ -189,6 +186,7 @@
             面料的诚实，是一切体面的起点。
           </figcaption>
         </figure>
+        </div>
       </section>
 
       <section class="section presence" id="presence">
@@ -261,16 +259,17 @@
 
     <footer class="site-footer">
       <div class="footer-brand">
-        <span class="brand-en">YooWear</span>
-        <span class="brand-zh" data-i18n="brand.zh">悦己</span>
+        <img class="footer-mark" src="assets/mark.png" alt="" width="64" height="64" />
+        <div class="footer-brand-text">
+          <span class="brand-en">YooWear</span>
+          <span class="brand-zh" data-i18n="brand.zh">悦己</span>
+        </div>
       </div>
       <p class="footer-tagline" data-i18n="footer.tagline">
         先悦己，再示人。
       </p>
       <p class="footer-copy">
-        <span data-i18n="footer.rights"
-          >© 2026 广州悦己服装有限公司 保留所有权利</span
-        >
+        <span data-i18n="footer.rights">© 2026 广州悦己服装有限公司 保留所有权利</span>
       </p>
     </footer>
 
