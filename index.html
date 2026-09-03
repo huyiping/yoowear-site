@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="广州悦己服装有限公司（YooWear）——以衣为媒，让穿着回归悦己本心。"
+    />
+    <meta name="theme-color" content="#f3f5f7" />
+    <meta property="og:title" content="YooWear 悦己 | 广州悦己服装有限公司" />
+    <meta
+      property="og:description"
+      content="衣着，是对自己温柔的回应。Bright clothing philosophy from Guangzhou."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/images/hero.jpg" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@400;500;600&family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>YooWear 悦己 | 广州悦己服装有限公司</title>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="YooWear">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-en">YooWear</span>
+          <span class="brand-zh" data-i18n="brand.zh">悦己</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#philosophy" data-i18n="nav.philosophy">理念</a>
+        <a href="#beliefs" data-i18n="nav.beliefs">信念</a>
+        <a href="#presence" data-i18n="nav.presence">姿态</a>
+        <a href="#contact" data-i18n="nav.contact">联络</a>
+      </nav>
+      <div class="header-actions">
+        <button
+          type="button"
+          class="lang-switch"
+          id="langSwitch"
+          aria-label="Switch language"
+        >
+          <span data-lang-label>EN</span>
+        </button>
+        <a class="header-cta" href="#contact" data-i18n="nav.cta">了解我们</a>
+      </div>
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+        aria-label="Menu"
+      >
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <a href="#philosophy" data-i18n="nav.philosophy">理念</a>
+      <a href="#beliefs" data-i18n="nav.beliefs">信念</a>
+      <a href="#presence" data-i18n="nav.presence">姿态</a>
+      <a href="#contact" data-i18n="nav.contact">联络</a>
+      <button type="button" class="lang-switch mobile" id="langSwitchMobile">
+        <span data-lang-label>EN</span>
+      </button>
+    </div>
+
+    <main>
+      <section class="hero" aria-label="Hero">
+        <div class="hero-media">
+          <img
+            src="assets/images/hero.jpg"
+            alt=""
+            width="1920"
+            height="1280"
+            fetchpriority="high"
+          />
+          <div class="hero-veil" aria-hidden="true"></div>
+        </div>
+        <div class="hero-content">
+          <p class="hero-brand">YooWear</p>
+          <p class="hero-brand-zh" data-i18n="brand.zh">悦己</p>
+          <h1 data-i18n="hero.title">衣着，是对自己温柔的回应</h1>
+          <p class="hero-lead" data-i18n="hero.lead">
+            广州悦己服装有限公司，以衣为媒，让穿着回归悦己本心。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#philosophy" data-i18n="hero.cta"
+              >走进悦己</a
+            >
+            <a class="btn btn-ghost" href="#contact" data-i18n="hero.secondary"
+              >与我们联络</a
+            >
+          </div>
+        </div>
+        <a class="scroll-hint" href="#philosophy" aria-hidden="true">
+          <span></span>
+        </a>
+      </section>
+
+      <section class="section philosophy" id="philosophy">
+        <div class="section-intro">
+          <p class="eyebrow" data-i18n="philosophy.eyebrow">我们的理念</p>
+          <h2 data-i18n="philosophy.title">好的服装不喧哗</h2>
+          <p class="section-lead" data-i18n="philosophy.lead">
+            它只恰到好处地成就穿着者的气场——不多一分，也不少一分。
+          </p>
+        </div>
+        <div class="philosophy-grid">
+          <figure class="philosophy-visual reveal">
+            <img
+              src="assets/images/atelier.jpg"
+              alt=""
+              width="1400"
+              height="933"
+              loading="lazy"
+            />
+          </figure>
+          <div class="philosophy-copy reveal">
+            <p data-i18n="philosophy.p1">
+              悦己相信，穿衣不是表演，而是日常里与自我的一次次和解。面料的触感、版型的呼吸、色彩的克制，共同构成一种安静而持久的体面。
+            </p>
+            <p data-i18n="philosophy.p2">
+              我们不做短暂的潮流注脚，而愿成为陪伴生活节奏的衣着伙伴——让人在镜前认出自己，在人群中不必用力。
+            </p>
+            <blockquote data-i18n="philosophy.quote">
+              「先悦己，再示人。」
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section beliefs" id="beliefs">
+        <div class="section-intro">
+          <p class="eyebrow" data-i18n="beliefs.eyebrow">我们相信</p>
+          <h2 data-i18n="beliefs.title">三件事，撑起全部审美</h2>
+          <p class="section-lead" data-i18n="beliefs.lead">
+            它们不响亮，却决定一件衣服能否真正属于你。
+          </p>
+        </div>
+        <ol class="belief-list">
+          <li class="belief reveal">
+            <span class="belief-index">01</span>
+            <div>
+              <h3 data-i18n="beliefs.b1.title">本真</h3>
+              <p data-i18n="beliefs.b1.text">
+                材质如实说话。棉的温度、丝的流动、羊毛的包容——我们尊重它们本来的样子，不堆砌多余的装饰。
+              </p>
+            </div>
+          </li>
+          <li class="belief reveal">
+            <span class="belief-index">02</span>
+            <div>
+              <h3 data-i18n="beliefs.b2.title">克制</h3>
+              <p data-i18n="beliefs.b2.text">
+                留白也是设计。线条干净，色彩节制，让穿着者成为主角，而不是被衣服淹没。
+              </p>
+            </div>
+          </li>
+          <li class="belief reveal">
+            <span class="belief-index">03</span>
+            <div>
+              <h3 data-i18n="beliefs.b3.title">长久</h3>
+              <p data-i18n="beliefs.b3.text">
+                经得起季节轮转的，才配得上衣柜里的位置。我们追求可反复穿着的耐看，而非一次性的惊艳。
+              </p>
+            </div>
+          </li>
+        </ol>
+        <figure class="beliefs-visual reveal">
+          <img
+            src="assets/images/fabric.jpg"
+            alt=""
+            width="1400"
+            height="933"
+            loading="lazy"
+          />
+          <figcaption data-i18n="beliefs.caption">
+            面料的诚实，是一切体面的起点。
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section presence" id="presence">
+        <div class="presence-layout">
+          <div class="presence-copy reveal">
+            <p class="eyebrow" data-i18n="presence.eyebrow">我们的姿态</p>
+            <h2 data-i18n="presence.title">明亮，却不刺眼</h2>
+            <p data-i18n="presence.p1">
+              悦己的审美倾向日光——干净、透气、带着温度。我们希望衣服走进生活时，像清晨拉开窗帘的那一刻：光线进来，人也松弛下来。
+            </p>
+            <p data-i18n="presence.p2">
+              从广州出发，我们把东方对「分寸」的理解织进现代衣着：合身而不局促，讲究而不张扬，让每一次出门，都是对自我的轻轻肯定。
+            </p>
+          </div>
+          <div class="presence-gallery">
+            <figure class="reveal">
+              <img
+                src="assets/images/space.jpg"
+                alt=""
+                width="1400"
+                height="933"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="reveal">
+              <img
+                src="assets/images/detail.jpg"
+                alt=""
+                width="1200"
+                height="800"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="contact-panel reveal">
+          <div class="contact-copy">
+            <p class="eyebrow" data-i18n="contact.eyebrow">联络</p>
+            <h2 data-i18n="contact.title">欢迎走近悦己</h2>
+            <p class="section-lead" data-i18n="contact.lead">
+              无论是品牌合作、商务洽谈，或只是想了解我们在坚持什么——我们乐于倾听。
+            </p>
+          </div>
+          <dl class="contact-details">
+            <div>
+              <dt data-i18n="contact.company">公司</dt>
+              <dd data-i18n="contact.companyValue">广州悦己服装有限公司</dd>
+            </div>
+            <div>
+              <dt data-i18n="contact.brand">品牌</dt>
+              <dd>YooWear</dd>
+            </div>
+            <div>
+              <dt data-i18n="contact.location">所在地</dt>
+              <dd data-i18n="contact.locationValue">中国 · 广州</dd>
+            </div>
+            <div>
+              <dt data-i18n="contact.email">邮箱</dt>
+              <dd>
+                <a href="mailto:daiyachong@yoowear.cn">daiyachong@yoowear.cn</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <span class="brand-en">YooWear</span>
+        <span class="brand-zh" data-i18n="brand.zh">悦己</span>
+      </div>
+      <p class="footer-tagline" data-i18n="footer.tagline">
+        先悦己，再示人。
+      </p>
+      <p class="footer-copy">
+        <span data-i18n="footer.rights"
+          >© 2026 广州悦己服装有限公司 保留所有权利</span
+        >
+      </p>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
