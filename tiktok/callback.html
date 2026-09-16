@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#f3f5f7" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <link rel="icon" type="image/png" href="../assets/favicon.png" />
+    <title>TikTok 授权回调 | YooWear 悦己</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3f5f7;
+        --panel: rgba(255, 255, 255, 0.82);
+        --ink: #1c2421;
+        --muted: #65706b;
+        --line: rgba(28, 36, 33, 0.12);
+        --accent: #3d6b5a;
+        --accent-dark: #2a4a3e;
+        --success: #2f7258;
+        --error: #a3453d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 10% 0%, rgba(61, 107, 90, 0.12), transparent 34rem),
+          radial-gradient(circle at 100% 100%, rgba(161, 183, 198, 0.22), transparent 32rem),
+          var(--bg);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+      }
+
+      main {
+        width: min(100%, 680px);
+        padding: clamp(28px, 6vw, 52px);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: 0 24px 70px rgba(28, 36, 33, 0.1);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand {
+        margin: 0 0 36px;
+        color: var(--accent-dark);
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: 20px;
+        letter-spacing: 0.08em;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: clamp(30px, 6vw, 46px);
+        font-weight: 500;
+        line-height: 1.18;
+      }
+
+      .message {
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .result {
+        display: none;
+        margin-top: 30px;
+      }
+
+      .result.visible {
+        display: block;
+      }
+
+      label {
+        display: block;
+        margin: 18px 0 8px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      textarea,
+      output {
+        width: 100%;
+        display: block;
+        padding: 14px 16px;
+        overflow-wrap: anywhere;
+        color: var(--ink);
+        background: rgba(243, 245, 247, 0.92);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        font: 14px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      textarea {
+        min-height: 118px;
+        resize: vertical;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      button,
+      .home-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        border: 1px solid var(--accent);
+        border-radius: 999px;
+        font: inherit;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      button {
+        color: white;
+        background: var(--accent);
+      }
+
+      button:hover {
+        background: var(--accent-dark);
+      }
+
+      button:focus-visible,
+      .home-link:focus-visible {
+        outline: 3px solid rgba(61, 107, 90, 0.24);
+        outline-offset: 3px;
+      }
+
+      .home-link {
+        color: var(--accent-dark);
+        background: transparent;
+      }
+
+      .notice {
+        margin: 28px 0 0;
+        padding-top: 22px;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .success {
+        color: var(--success);
+      }
+
+      .error {
+        color: var(--error);
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 14px;
+        }
+
+        main {
+          padding: 28px 22px;
+          border-radius: 18px;
+        }
+
+        .actions > * {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="brand">YooWear 悦己</p>
+      <p class="eyebrow">TikTok API</p>
+      <h1 id="title">正在处理授权结果</h1>
+      <p class="message" id="message" role="status" aria-live="polite">
+        正在读取 TikTok 返回的信息……
+      </p>
+
+      <section class="result" id="successResult" aria-labelledby="authCodeLabel">
+        <label id="authCodeLabel" for="authCode">auth_code</label>
+        <textarea id="authCode" readonly spellcheck="false"></textarea>
+
+        <label for="stateValue">state</label>
+        <output id="stateValue">未提供</output>
+
+        <div class="actions">
+          <button type="button" id="copyButton">复制 auth_code</button>
+          <a class="home-link" href="../">返回主页</a>
+        </div>
+      </section>
+
+      <section class="result" id="errorResult">
+        <label>错误信息</label>
+        <output id="errorValue"></output>
+        <div class="actions">
+          <a class="home-link" href="../">返回主页</a>
+        </div>
+      </section>
+
+      <p class="notice">
+        此页面只在当前浏览器中显示授权结果，不会将 auth_code 发送给任何第三方。
+        auth_code 是一次性敏感凭据，请尽快在可信的后端或 TikTok API Playground 中兑换 access_token。
+      </p>
+    </main>
+
+    <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const authCode = params.get("auth_code");
+        const state = params.get("state");
+        const error = params.get("error");
+        const errorDescription = params.get("error_description");
+
+        const title = document.getElementById("title");
+        const message = document.getElementById("message");
+        const successResult = document.getElementById("successResult");
+        const errorResult = document.getElementById("errorResult");
+        const authCodeField = document.getElementById("authCode");
+        const stateValue = document.getElementById("stateValue");
+        const copyButton = document.getElementById("copyButton");
+
+        if (authCode) {
+          title.textContent = "TikTok 授权成功";
+          message.textContent = "已收到授权码，请复制后尽快兑换 access_token。";
+          message.classList.add("success");
+          authCodeField.value = authCode;
+          stateValue.textContent = state || "未提供";
+          successResult.classList.add("visible");
+
+          copyButton.addEventListener("click", async () => {
+            try {
+              await navigator.clipboard.writeText(authCode);
+            } catch {
+              authCodeField.focus();
+              authCodeField.select();
+              document.execCommand("copy");
+            }
+
+            copyButton.textContent = "已复制";
+            window.setTimeout(() => {
+              copyButton.textContent = "复制 auth_code";
+            }, 1800);
+          });
+          return;
+        }
+
+        title.textContent = error ? "TikTok 授权未完成" : "尚未收到授权码";
+        message.textContent = error
+          ? "TikTok 返回了错误，请检查授权操作后重试。"
+          : "请从 TikTok 广告主授权链接进入并完成授权。";
+        if (error) {
+          message.classList.add("error");
+        }
+        document.getElementById("errorValue").textContent =
+          errorDescription || error || "回调地址中没有 auth_code 参数";
+        errorResult.classList.add("visible");
+      })();
+    </script>
+  </body>
+</html>
